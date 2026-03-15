@@ -1,0 +1,764 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCBC50562F71E80D00AFF8CB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBC50552F71E80D00AFF8CB /* WidgetKit.framework */; };
+		DCBC50582F71E80D00AFF8CB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBC50572F71E80D00AFF8CB /* SwiftUI.framework */; };
+		DCBC50672F71E81000AFF8CB /* CalmRouteWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DCBC50532F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCBC4FEC2F70E2B100AFF8CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCBC4FD32F70E2AE00AFF8CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCBC4FDA2F70E2AE00AFF8CB;
+			remoteInfo = CalmRoute;
+		};
+		DCBC4FF62F70E2B100AFF8CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCBC4FD32F70E2AE00AFF8CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCBC4FDA2F70E2AE00AFF8CB;
+			remoteInfo = CalmRoute;
+		};
+		DCBC50652F71E81000AFF8CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCBC4FD32F70E2AE00AFF8CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCBC50522F71E80C00AFF8CB;
+			remoteInfo = CalmRouteWidgetExtensionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DCBC506C2F71E81000AFF8CB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DCBC50672F71E81000AFF8CB /* CalmRouteWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DCBC4FDB2F70E2AE00AFF8CB /* CalmRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalmRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCBC4FEB2F70E2B100AFF8CB /* CalmRouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmRouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCBC4FF52F70E2B100AFF8CB /* CalmRouteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalmRouteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCBC50532F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalmRouteWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCBC50552F71E80D00AFF8CB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DCBC50572F71E80D00AFF8CB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DCBC504D2F71E72B00AFF8CB /* Exceptions for "CalmRoute" folder in "CalmRoute" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Extensions/Widget/CalmRouteWidget.swift,
+				Info.plist,
+			);
+			target = DCBC4FDA2F70E2AE00AFF8CB /* CalmRoute */;
+		};
+		DCBC506B2F71E81000AFF8CB /* Exceptions for "CalmRouteWidgetExtension" folder in "CalmRouteWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DCBC50522F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension */;
+		};
+		DCBC506E2F71E9D700AFF8CB /* Exceptions for "CalmRoute" folder in "CalmRouteWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Extensions/LiveActivity/CalmRouteAttributes.swift,
+				Extensions/LiveActivity/CalmRouteLiveActivity.swift,
+				Extensions/Widget/CalmRouteWidget.swift,
+			);
+			target = DCBC50522F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DCBC4FDD2F70E2AE00AFF8CB /* CalmRoute */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DCBC504D2F71E72B00AFF8CB /* Exceptions for "CalmRoute" folder in "CalmRoute" target */,
+				DCBC506E2F71E9D700AFF8CB /* Exceptions for "CalmRoute" folder in "CalmRouteWidgetExtensionExtension" target */,
+			);
+			path = CalmRoute;
+			sourceTree = "<group>";
+		};
+		DCBC4FEE2F70E2B100AFF8CB /* CalmRouteTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CalmRouteTests;
+			sourceTree = "<group>";
+		};
+		DCBC50592F71E80D00AFF8CB /* CalmRouteWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DCBC506B2F71E81000AFF8CB /* Exceptions for "CalmRouteWidgetExtension" folder in "CalmRouteWidgetExtensionExtension" target */,
+			);
+			path = CalmRouteWidgetExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCBC4FD82F70E2AE00AFF8CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC4FE82F70E2B100AFF8CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC4FF22F70E2B100AFF8CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC50502F71E80C00AFF8CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCBC50582F71E80D00AFF8CB /* SwiftUI.framework in Frameworks */,
+				DCBC50562F71E80D00AFF8CB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCBC4FD22F70E2AE00AFF8CB = {
+			isa = PBXGroup;
+			children = (
+				DCBC4FDD2F70E2AE00AFF8CB /* CalmRoute */,
+				DCBC4FEE2F70E2B100AFF8CB /* CalmRouteTests */,
+				DCBC50592F71E80D00AFF8CB /* CalmRouteWidgetExtension */,
+				DCBC50542F71E80D00AFF8CB /* Frameworks */,
+				DCBC4FDC2F70E2AE00AFF8CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCBC4FDC2F70E2AE00AFF8CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCBC4FDB2F70E2AE00AFF8CB /* CalmRoute.app */,
+				DCBC4FEB2F70E2B100AFF8CB /* CalmRouteTests.xctest */,
+				DCBC4FF52F70E2B100AFF8CB /* CalmRouteUITests.xctest */,
+				DCBC50532F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCBC50542F71E80D00AFF8CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCBC50552F71E80D00AFF8CB /* WidgetKit.framework */,
+				DCBC50572F71E80D00AFF8CB /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCBC4FDA2F70E2AE00AFF8CB /* CalmRoute */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCBC4FFF2F70E2B100AFF8CB /* Build configuration list for PBXNativeTarget "CalmRoute" */;
+			buildPhases = (
+				DCBC4FD72F70E2AE00AFF8CB /* Sources */,
+				DCBC4FD82F70E2AE00AFF8CB /* Frameworks */,
+				DCBC4FD92F70E2AE00AFF8CB /* Resources */,
+				DCBC506C2F71E81000AFF8CB /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCBC50662F71E81000AFF8CB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DCBC4FDD2F70E2AE00AFF8CB /* CalmRoute */,
+			);
+			name = CalmRoute;
+			packageProductDependencies = (
+			);
+			productName = CalmRoute;
+			productReference = DCBC4FDB2F70E2AE00AFF8CB /* CalmRoute.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCBC4FEA2F70E2B100AFF8CB /* CalmRouteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCBC50022F70E2B100AFF8CB /* Build configuration list for PBXNativeTarget "CalmRouteTests" */;
+			buildPhases = (
+				DCBC4FE72F70E2B100AFF8CB /* Sources */,
+				DCBC4FE82F70E2B100AFF8CB /* Frameworks */,
+				DCBC4FE92F70E2B100AFF8CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCBC4FED2F70E2B100AFF8CB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DCBC4FEE2F70E2B100AFF8CB /* CalmRouteTests */,
+			);
+			name = CalmRouteTests;
+			packageProductDependencies = (
+			);
+			productName = CalmRouteTests;
+			productReference = DCBC4FEB2F70E2B100AFF8CB /* CalmRouteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DCBC4FF42F70E2B100AFF8CB /* CalmRouteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCBC50052F70E2B100AFF8CB /* Build configuration list for PBXNativeTarget "CalmRouteUITests" */;
+			buildPhases = (
+				DCBC4FF12F70E2B100AFF8CB /* Sources */,
+				DCBC4FF22F70E2B100AFF8CB /* Frameworks */,
+				DCBC4FF32F70E2B100AFF8CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCBC4FF72F70E2B100AFF8CB /* PBXTargetDependency */,
+			);
+			name = CalmRouteUITests;
+			packageProductDependencies = (
+			);
+			productName = CalmRouteUITests;
+			productReference = DCBC4FF52F70E2B100AFF8CB /* CalmRouteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		DCBC50522F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCBC50682F71E81000AFF8CB /* Build configuration list for PBXNativeTarget "CalmRouteWidgetExtensionExtension" */;
+			buildPhases = (
+				DCBC504F2F71E80C00AFF8CB /* Sources */,
+				DCBC50502F71E80C00AFF8CB /* Frameworks */,
+				DCBC50512F71E80C00AFF8CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DCBC50592F71E80D00AFF8CB /* CalmRouteWidgetExtension */,
+			);
+			name = CalmRouteWidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = CalmRouteWidgetExtensionExtension;
+			productReference = DCBC50532F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCBC4FD32F70E2AE00AFF8CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					DCBC4FDA2F70E2AE00AFF8CB = {
+						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
+					};
+					DCBC4FEA2F70E2B100AFF8CB = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = DCBC4FDA2F70E2AE00AFF8CB;
+					};
+					DCBC4FF42F70E2B100AFF8CB = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = DCBC4FDA2F70E2AE00AFF8CB;
+					};
+					DCBC50522F71E80C00AFF8CB = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = DCBC4FD62F70E2AE00AFF8CB /* Build configuration list for PBXProject "CalmRoute" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DCBC4FD22F70E2AE00AFF8CB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DCBC4FDC2F70E2AE00AFF8CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCBC4FDA2F70E2AE00AFF8CB /* CalmRoute */,
+				DCBC4FEA2F70E2B100AFF8CB /* CalmRouteTests */,
+				DCBC4FF42F70E2B100AFF8CB /* CalmRouteUITests */,
+				DCBC50522F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCBC4FD92F70E2AE00AFF8CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC4FE92F70E2B100AFF8CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC4FF32F70E2B100AFF8CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC50512F71E80C00AFF8CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCBC4FD72F70E2AE00AFF8CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC4FE72F70E2B100AFF8CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC4FF12F70E2B100AFF8CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCBC504F2F71E80C00AFF8CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCBC4FED2F70E2B100AFF8CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCBC4FDA2F70E2AE00AFF8CB /* CalmRoute */;
+			targetProxy = DCBC4FEC2F70E2B100AFF8CB /* PBXContainerItemProxy */;
+		};
+		DCBC4FF72F70E2B100AFF8CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCBC4FDA2F70E2AE00AFF8CB /* CalmRoute */;
+			targetProxy = DCBC4FF62F70E2B100AFF8CB /* PBXContainerItemProxy */;
+		};
+		DCBC50662F71E81000AFF8CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCBC50522F71E80C00AFF8CB /* CalmRouteWidgetExtensionExtension */;
+			targetProxy = DCBC50652F71E81000AFF8CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DCBC4FFD2F70E2B100AFF8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DCBC4FFE2F70E2B100AFF8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCBC50002F70E2B100AFF8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CalmRoute/CalmRoute.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CalmRoute/Preview Content\"";
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalmRoute/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRoute;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCBC50012F70E2B100AFF8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CalmRoute/CalmRoute.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CalmRoute/Preview Content\"";
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalmRoute/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRoute;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DCBC50032F70E2B100AFF8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRouteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalmRoute.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CalmRoute";
+			};
+			name = Debug;
+		};
+		DCBC50042F70E2B100AFF8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRouteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalmRoute.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CalmRoute";
+			};
+			name = Release;
+		};
+		DCBC50062F70E2B100AFF8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRouteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CalmRoute;
+			};
+			name = Debug;
+		};
+		DCBC50072F70E2B100AFF8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRouteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CalmRoute;
+			};
+			name = Release;
+		};
+		DCBC50692F71E81000AFF8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalmRouteWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CalmRouteWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRoute.CalmRouteWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCBC506A2F71E81000AFF8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DUY7357C8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalmRouteWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CalmRouteWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = saisuryasambangi.CalmRoute.CalmRouteWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCBC4FD62F70E2AE00AFF8CB /* Build configuration list for PBXProject "CalmRoute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCBC4FFD2F70E2B100AFF8CB /* Debug */,
+				DCBC4FFE2F70E2B100AFF8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCBC4FFF2F70E2B100AFF8CB /* Build configuration list for PBXNativeTarget "CalmRoute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCBC50002F70E2B100AFF8CB /* Debug */,
+				DCBC50012F70E2B100AFF8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCBC50022F70E2B100AFF8CB /* Build configuration list for PBXNativeTarget "CalmRouteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCBC50032F70E2B100AFF8CB /* Debug */,
+				DCBC50042F70E2B100AFF8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCBC50052F70E2B100AFF8CB /* Build configuration list for PBXNativeTarget "CalmRouteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCBC50062F70E2B100AFF8CB /* Debug */,
+				DCBC50072F70E2B100AFF8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCBC50682F71E81000AFF8CB /* Build configuration list for PBXNativeTarget "CalmRouteWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCBC50692F71E81000AFF8CB /* Debug */,
+				DCBC506A2F71E81000AFF8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCBC4FD32F70E2AE00AFF8CB /* Project object */;
+}
