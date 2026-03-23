@@ -11,7 +11,7 @@ Most navigation apps optimize for time. CalmRoute optimizes for how you feel whe
 <!-- Replace with actual simulator screenshots after running the app -->
 | Search | Route Comparison | Map Preview | Navigation |
 |--------|-----------------|-------------|------------|
-| ![Search](screenshots/search.png) | ![Comparison](screenshots/comparison.png) | ![Map](screenshots/map.png) | ![Navigation](screenshots/navigation.png) |
+| ![Search](screenshots/search1.png) | ![Comparison](screenshots/comparison.png) | ![Map](screenshots/map.png) | ![Navigation](screenshots/navigation.png) |
 
 ---
 
