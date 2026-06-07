@@ -33,17 +33,17 @@ struct RootView: View {
 
     var body: some View {
         NavigationStack(path: $coordinator.navigationPath) {
-            SearchView()
+            SearchView(locationActor: coordinator.locationActor)
                 .navigationDestination(for: AppRoute.self) { route in
                     switch route {
                     case .search:
-                        SearchView()
+                        SearchView(locationActor: coordinator.locationActor)
                     case .comparison(let routes):
                         RouteComparisonView(routes: routes)
                     case .map(let route):
                         MapView(selectedRoute: route)
                     case .navigating(let route):
-                        NavigationView(route: route)
+                        TurnByTurnView(route: route, locationActor: coordinator.locationActor)
                     }
                 }
         }

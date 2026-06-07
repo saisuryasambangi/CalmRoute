@@ -12,7 +12,7 @@ import SwiftUI
 // MARK: - ViewModel
 
 @MainActor
-final class NavigationViewModel: ObservableObject {
+final class TurnByTurnViewModel: ObservableObject {
 
     @Published var currentStepIndex: Int = 0
     @Published var distanceToNext: CLLocationDistance = 0
@@ -68,18 +68,18 @@ final class NavigationViewModel: ObservableObject {
 
 // MARK: - View
 
-struct NavigationView: View {
+struct TurnByTurnView: View {
 
     let route: ScoredRoute
     @EnvironmentObject var coordinator: AppCoordinator
-    @StateObject private var vm: NavigationViewModel
+    @StateObject private var vm: TurnByTurnViewModel
     @State private var mapRegion: MKCoordinateRegion?
 
-    init(route: ScoredRoute) {
+    init(route: ScoredRoute, locationActor: LocationActor) {
         self.route = route
-        _vm = StateObject(wrappedValue: NavigationViewModel(
+        _vm = StateObject(wrappedValue: TurnByTurnViewModel(
             route: route,
-            locationActor: LocationActor(),
+            locationActor: locationActor,
             liveActivity: LiveActivityService()
         ))
     }
