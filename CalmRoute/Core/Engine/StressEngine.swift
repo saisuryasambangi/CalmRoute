@@ -20,23 +20,25 @@ final class StressEngine: Sendable {
     func score(
         route: MKRoute,
         weather: WeatherCondition,
-        at date: Date = Date()
+        at date: Date = Date(),
+        weights: StressWeightsConfig = .defaults
     ) -> StressScore {
         let proxy = makeProxy(from: route)
-        return score(proxy: proxy, weather: weather, at: date)
+        return score(proxy: proxy, weather: weather, at: date, weights: weights)
     }
 
     // Separate proxy-based path for tests (MKRoute can't be instantiated directly)
     func score(
         proxy: MockRouteProxy,
         weather: WeatherCondition,
-        at date: Date = Date()
+        at date: Date = Date(),
+        weights: StressWeightsConfig = .defaults
     ) -> StressScore {
         var factors: [StressFactor] = []
 
         // 1. Traffic density
         let trafficRaw = TrafficDensity.score(route: proxy)
-        let trafficPoints = trafficRaw * StressWeights.traffic
+        let trafficPoints = trafficRaw * weights.traffic
         if trafficPoints > 0 {
             let label = trafficRaw < 20 ? "Light traffic" :
                         trafficRaw < 50 ? "Moderate congestion" : "Heavy congestion"
@@ -53,7 +55,7 @@ final class StressEngine: Sendable {
             mergeCount: proxy.mergeCount,
             uTurnCount: proxy.uTurnCount
         )
-        let junctionPoints = junctionRaw * StressWeights.junctions
+        let junctionPoints = junctionRaw * weights.junctions
         if junctionPoints > 0 {
             var parts: [String] = []
             if proxy.mergeCount > 0 { parts.append("\(proxy.mergeCount) merge\(proxy.mergeCount == 1 ? "" : "s")") }
@@ -67,7 +69,7 @@ final class StressEngine: Sendable {
         }
 
         // 3. Weather
-        let weatherPoints = weather.stressDelta * StressWeights.weather
+        let weatherPoints = weather.stressDelta * weights.weather
         if weatherPoints > 0 {
             let weatherLabel: String
             switch weather.precipitation {
@@ -85,7 +87,7 @@ final class StressEngine: Sendable {
 
         // 4. Time of day (rush hour)
         let rushMultiplier = RushHourSchedule.multiplier(for: date)
-        let timePoints = (rushMultiplier - 1.0) * 100 * StressWeights.timeOfDay
+        let timePoints = (rushMultiplier - 1.0) * 100 * weights.timeOfDay
         if timePoints > 0 {
             let hour = Calendar.current.component(.hour, from: date)
             let label = (7...9).contains(hour) ? "Morning rush" : "Evening rush"

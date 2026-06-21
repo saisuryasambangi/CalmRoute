@@ -80,11 +80,12 @@ actor RouteActor {
         weather: WeatherCondition,
         at date: Date
     ) -> [ScoredRoute] {
+        let weights = StressWeightsConfig.fromUserDefaults()
         var result = routes.map { route in
             ScoredRoute(
                 id: UUID(),
                 route: route,
-                stressScore: engine.score(route: route, weather: weather, at: date),
+                stressScore: engine.score(route: route, weather: weather, at: date, weights: weights),
                 label: .balanced
             )
         }

@@ -7,16 +7,43 @@
 
 import Foundation
 
-// Factor weights. These are tunable — I spent a while iterating on these
-// values against real commute data before settling here. Traffic density
-// is the biggest single driver of perceived stress, followed closely by
-// junction complexity (merges and unprotected turns are genuinely draining).
-enum StressWeights {
-    static let traffic:    Double = 0.30
-    static let junctions:  Double = 0.25
-    static let roadType:   Double = 0.20
-    static let weather:    Double = 0.15
-    static let timeOfDay:  Double = 0.10
+// Factor weights. Traffic density is the biggest single driver of perceived
+// stress, followed by junction complexity. The three user-visible weights
+// are stored in UserDefaults via SettingsSheet sliders (0-60 range, step 5).
+// roadType and timeOfDay are not user-tunable and stay at their defaults.
+struct StressWeightsConfig {
+    var traffic:   Double
+    var junctions: Double
+    var roadType:  Double
+    var weather:   Double
+    var timeOfDay: Double
+
+    static let defaults = StressWeightsConfig(
+        traffic:   0.30,
+        junctions: 0.25,
+        roadType:  0.20,
+        weather:   0.15,
+        timeOfDay: 0.10
+    )
+
+    // Reads the three user-settable weights from UserDefaults (0-60 range),
+    // normalizes them to fill the 0.70 budget left after roadType+timeOfDay,
+    // so all five weights always sum to 1.0.
+    static func fromUserDefaults() -> StressWeightsConfig {
+        let t = UserDefaults.standard.double(forKey: "trafficWeight")
+        let j = UserDefaults.standard.double(forKey: "junctionWeight")
+        let w = UserDefaults.standard.double(forKey: "weatherWeight")
+        let sum = t + j + w
+        guard sum > 0 else { return .defaults }
+        let userBudget = 1.0 - defaults.roadType - defaults.timeOfDay  // 0.70
+        return StressWeightsConfig(
+            traffic:   (t / sum) * userBudget,
+            junctions: (j / sum) * userBudget,
+            roadType:  defaults.roadType,
+            weather:   (w / sum) * userBudget,
+            timeOfDay: defaults.timeOfDay
+        )
+    }
 }
 
 // Time-of-day rush multiplier — applied on top of the base score.
