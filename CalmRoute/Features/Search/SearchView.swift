@@ -72,6 +72,15 @@ final class SearchViewModel: ObservableObject {
         }
     }
 
+    // Internal (not private) so tests can drive the nil-location guard directly.
+    // Coordinator-level routing (fetching routes, pushing navigation) stays in the View.
+    func routeToDestination(_ destination: MKMapItem) async {
+        guard userLocation != nil else {
+            errorMessage = "Location unavailable. Please enable location access in Settings."
+            return
+        }
+    }
+
     private func performSearch() async {
         isSearching = true
         defer { isSearching = false }
@@ -110,13 +119,17 @@ struct SearchView: View {
 
     @AppStorage("homeAddress") private var homeAddress = ""
     @AppStorage("workAddress") private var workAddress = ""
+    @AppStorage("lastRouteStressScore") private var lastRouteStressScore: Double = -1
 
     @State private var sheetHeight: CGFloat = SheetSnap.collapsed.rawValue
     @State private var dragOffset: CGFloat = 0
     @State private var showSettings = false
 
-    init() {
-        _vm = StateObject(wrappedValue: SearchViewModel(locationActor: LocationActor()))
+    // FIX: Use the coordinator's shared LocationActor instead of creating a new one.
+    // Creating a new LocationActor here meant two separate location streams were
+    // running simultaneously — wasted battery and location data mismatch across views.
+    init(locationActor: LocationActor) {
+        _vm = StateObject(wrappedValue: SearchViewModel(locationActor: locationActor))
     }
 
     var body: some View {
@@ -234,6 +247,15 @@ struct SearchView: View {
         .navigationBarHidden(true)
         .task { await vm.onAppear() }
         .sheet(isPresented: $showSettings) { SettingsSheet() }
+        // FIX: errorMessage was set but never surfaced to the user.
+        .alert("Route Error", isPresented: Binding(
+            get: { vm.errorMessage != nil },
+            set: { if !$0 { vm.errorMessage = nil } }
+        )) {
+            Button("OK", role: .cancel) { vm.errorMessage = nil }
+        } message: {
+            Text(vm.errorMessage ?? "")
+        }
     }
 
     // MARK: - Drag gesture
@@ -269,34 +291,49 @@ struct SearchView: View {
     private var savedDestinations: some View {
         VStack(alignment: .leading, spacing: 16) {
 
-            // Hero stress card
+            // Hero stress card — shows real last route score, or a prompt if none yet
             HStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Drive calmer today")
                         .font(.headline)
                         .foregroundStyle(.white)
-                    Text("Your last route scored 18 — that's low stress.")
-                        .font(.caption)
-                        .foregroundStyle(.white.opacity(0.8))
-                        .lineLimit(2)
+                    if lastRouteStressScore >= 0 {
+                        let level = lastRouteStressScore < 30 ? "low stress" :
+                                    lastRouteStressScore < 60 ? "moderate stress" : "high stress"
+                        Text("Your last route scored \(Int(lastRouteStressScore)) — that's \(level).")
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.8))
+                            .lineLimit(2)
+                    } else {
+                        Text("Search a destination to get your first calm route.")
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.8))
+                            .lineLimit(2)
+                    }
                 }
                 .padding(16)
                 Spacer()
                 ZStack {
                     Circle()
                         .stroke(Color.white.opacity(0.25), lineWidth: 4)
-                    Circle()
-                        .trim(from: 0, to: 0.18)
-                        .stroke(Color.white,
-                                style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                        .rotationEffect(.degrees(-90))
-                    VStack(spacing: 0) {
-                        Text("18")
-                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white)
-                        Text("stress")
-                            .font(.system(size: 8, weight: .medium))
-                            .foregroundStyle(.white.opacity(0.7))
+                    if lastRouteStressScore >= 0 {
+                        Circle()
+                            .trim(from: 0, to: min(lastRouteStressScore / 100, 1.0))
+                            .stroke(Color.white,
+                                    style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                            .rotationEffect(.degrees(-90))
+                        VStack(spacing: 0) {
+                            Text("\(Int(lastRouteStressScore))")
+                                .font(.system(size: 20, weight: .bold, design: .rounded))
+                                .foregroundStyle(.white)
+                            Text("stress")
+                                .font(.system(size: 8, weight: .medium))
+                                .foregroundStyle(.white.opacity(0.7))
+                        }
+                    } else {
+                        Image(systemName: "map.fill")
+                            .font(.title3)
+                            .foregroundStyle(.white.opacity(0.8))
                     }
                 }
                 .frame(width: 58, height: 58)
@@ -434,12 +471,16 @@ struct SearchView: View {
     // MARK: - Route calculation
 
     private func routeToDestination(_ destination: MKMapItem) async {
-        let origin = vm.userLocation ?? CLLocationCoordinate2D(latitude: 37.3346, longitude: -122.0090)
+        await vm.routeToDestination(destination)
+        guard vm.errorMessage == nil, let origin = vm.userLocation else { return }
         let weather = await coordinator.weatherService.condition(at: origin)
         do {
             let routes = try await coordinator.routeActor.fetchScoredRoutes(
                 from: origin, to: destination, weather: weather
             )
+            if let calmest = routes.first(where: { $0.label == .calmest }) ?? routes.first {
+                lastRouteStressScore = calmest.stressScore.total
+            }
             coordinator.push(.comparison(routes))
         } catch {
             vm.errorMessage = "Couldn't calculate routes. Check your connection."
